@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+🛠️ EDIT GUIDE — SELMORE ELECTRONICS VERSION
+═══════════════════════════════════════════════════════════════════════════════
+1. SHOP NAME & TAGLINE  : "Selmore Electronics" / "40+ Years of Trust in Indore"
+2. WHATSAPP & PHONE NO. : 94254-22022 → WhatsApp: 919425422022
+3. INSTAGRAM            : @selmore_electronics
+4. FACEBOOK             : facebook.com/SelmoreElectronics
+5. ADDRESS              : 42 MTH COMPOUND, Indore, India 452007
+6. SCRATCH CARD         : 1 scratch per page visit (no timer).
+                          Prize odds: Neckband 60%, Airpods 20%, Speaker 12%, Watch 8%
+7. OFFERS / PRODUCTS    : Edit OFFERS, PRODUCTS, EMI_BRANDS arrays at bottom
+═══════════════════════════════════════════════════════════════════════════════
+-->
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#0b1220">
+  <meta name="description" content="Selmore Electronics — 40+ Years of Trust in Indore. Best deals on Smart TVs, ACs, Refrigerators, Sound Systems & more at 42 MTH Compound, Indore.">
+  <title>Selmore Electronics — Digital Visiting Card</title>
+
+  <style>
+    :root {
+      --bg1: #0b1220;
+      --bg2: #101a2e;
+      --card: #16213a;
+      --card2: #1d2b49;
+      --line: #28364f;
+      --text: #e9eefb;
+      --muted: #93a3c2;
+      --gold: #fbbf24;
+      --wa: #25d366;
+      --blue: #1e50a2;
+      --red: #e01e26;
+      --grad-ig: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
+    html { scroll-behavior: smooth; background-color: var(--bg1); }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans Devanagari", sans-serif;
+      background-color: var(--bg1);
+      background-image: 
+        radial-gradient(circle at 12% 6%, rgba(251, 191, 36, 0.14) 0%, transparent 42%),
+        radial-gradient(circle at 88% 10%, rgba(56, 189, 248, 0.12) 0%, transparent 45%),
+        linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 100%);
+      background-attachment: fixed;
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+      overflow-x: hidden;
+      padding-bottom: calc(92px + env(safe-area-inset-bottom, 0px));
+    }
+    a, button { font-family: inherit; color: inherit; text-decoration: none; }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+    .container {
+      width: 100%;
+      max-width: 480px;
+      margin: 0 auto;
+      padding: calc(20px + env(safe-area-inset-top, 0px)) 16px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .section-header { display: flex; flex-direction: column; gap: 3px; margin-bottom: 12px; }
+    .section-title { font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--muted); letter-spacing: 1.6px; }
+    .section-title-lg { font-size: 16px; font-weight: 800; color: var(--text); letter-spacing: 0.3px; }
+    .section-subtitle { font-size: 12.5px; color: var(--muted); }
+
+    /* HERO */
+    .hero { display: flex; flex-direction: column; align-items: center; text-align: center; padding-top: 6px; }
+    .logo-box {
+      width: 96px; height: 96px; border-radius: 50%;
+      background: #ffffff; padding: 4px;
+      border: 2.5px solid var(--gold);
+      box-shadow: 0 8px 30px rgba(251, 191, 36, 0.24);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 14px; overflow: hidden; user-select: none;
+    }
+    .logo-svg { width: 100%; height: 100%; display: block; }
+    .shop-name {
+      font-size: 26px; font-weight: 800; letter-spacing: -0.4px;
+      background: linear-gradient(90deg, #fffbeb 0%, var(--gold) 55%, #f59e0b 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+      margin-bottom: 4px; line-height: 1.2;
+    }
+    .tagline {
+      font-size: 13px; color: var(--gold); font-weight: 700;
+      letter-spacing: 0.8px; text-transform: uppercase; margin-bottom: 12px;
+    }
+    .brand-pills { display: flex; align-items: center; justify-content: center; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
+    .brand-pill {
+      background-color: var(--card2); border: 1px solid var(--line);
+      padding: 3px 11px; border-radius: 999px; font-size: 11px;
+      font-weight: 800; letter-spacing: 0.8px; color: var(--text);
+    }
+    .welcome-card {
+      width: 100%; border-radius: 18px; padding: 16px 18px;
+      background: linear-gradient(180deg, rgba(22, 33, 58, 0.88), rgba(22, 33, 58, 0.95)) padding-box,
+                  linear-gradient(135deg, rgba(251, 191, 36, 0.55), rgba(40, 54, 79, 0.5), rgba(251, 191, 36, 0.25)) border-box;
+      border: 1px solid transparent;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.35);
+    }
+    .welcome-top { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .welcome-greet {
+      font-size: 22px; font-weight: 800;
+      background: linear-gradient(90deg, #fde68a 0%, var(--gold) 60%, #f59e0b 100%);
+      -webkit-background-clip: text; background-clip: text; color: transparent; margin-bottom: 4px;
+    }
+    .welcome-sub { font-size: 12px; color: var(--muted); }
+
+    /* OFFER BANNER */
+    @keyframes bannerShimmer { 0% { background-position: 0% 50%; } 100% { background-position: 100% 50%; } }
+    .offer-banner {
+      display: flex; align-items: center; justify-content: space-between; gap: 10px;
+      height: 50px; padding: 0 13px; border-radius: 14px; overflow: hidden;
+      background: linear-gradient(115deg, var(--card) 0%, #24355a 45%, #2f261b 55%, var(--card) 100%);
+      background-size: 240% 240%;
+      animation: bannerShimmer 4s ease-in-out infinite alternate;
+      border: 1px solid rgba(251, 191, 36, 0.45);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.28);
+      cursor: pointer; transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .offer-banner:hover { border-color: var(--gold); }
+    .offer-banner:active { transform: scale(0.985); }
+    .offer-left { display: flex; align-items: center; gap: 7px; flex-shrink: 0; }
+    .offer-emoji { font-size: 19px; line-height: 1; transition: opacity 0.28s ease, transform 0.28s ease; }
+    .offer-badge {
+      background: linear-gradient(135deg, var(--gold), #f59e0b); color: #0b1220;
+      font-size: 9.5px; font-weight: 900; padding: 2px 6px; border-radius: 999px;
+      letter-spacing: 0.6px; text-transform: uppercase; line-height: 1.2;
+    }
+    .offer-center { flex: 1; min-width: 0; overflow: hidden; }
+    .offer-text {
+      display: block; font-size: 12.5px; font-weight: 600; color: var(--text);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      transition: opacity 0.28s ease, transform 0.28s ease;
+    }
+    .offer-text.is-changing, .offer-emoji.is-changing { opacity: 0; transform: translateY(7px); }
+    .offer-arrow { font-size: 20px; font-weight: 700; color: var(--gold); flex-shrink: 0; line-height: 1; }
+
+    /* CONNECT LINKS */
+    .links-stack { display: flex; flex-direction: column; gap: 11px; }
+    .connect-btn {
+      display: flex; align-items: center; gap: 13px;
+      padding: 14px 16px; min-height: 68px;
+      background-color: var(--card); border: 1px solid var(--line);
+      border-radius: 16px;
+      transition: transform 0.18s ease, border-color 0.2s ease, background-color 0.2s ease;
+    }
+    .connect-btn:active { transform: scale(0.975); }
+    .connect-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 21px; flex-shrink: 0;
+    }
+    .connect-content { flex: 1; min-width: 0; }
+    .connect-title { font-size: 15px; font-weight: 700; color: var(--text); line-height: 1.25; margin-bottom: 2px; }
+    .connect-sub { font-size: 12px; color: var(--muted); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .connect-arrow { font-size: 22px; color: var(--muted); font-weight: 600; flex-shrink: 0; transition: transform 0.2s ease, color 0.2s ease; }
+    .connect-btn:hover .connect-arrow { transform: translateX(3px); color: var(--text); }
+
+    .connect-wa .connect-icon { background: rgba(37, 211, 102, 0.16); border: 1px solid rgba(37, 211, 102, 0.35); }
+    .connect-wa:hover { border-color: var(--wa); background-color: rgba(37, 211, 102, 0.08); }
+    .connect-ig .connect-icon { background: var(--grad-ig); color: #ffffff; }
+    .connect-ig:hover { border-color: #e6683c; background-color: rgba(220, 39, 67, 0.08); }
+    .connect-gr .connect-icon { background: rgba(59, 130, 246, 0.18); border: 1px solid rgba(59, 130, 246, 0.4); }
+    .connect-gr:hover { border-color: #3b82f6; background-color: rgba(59, 130, 246, 0.08); }
+    .connect-fb .connect-icon { background: #1877f2; color: #fff; }
+    .connect-fb:hover { border-color: #1877f2; background-color: rgba(24, 119, 242, 0.08); }
+
+    /* PRODUCTS */
+    .products-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+    .product-tile {
+      background-color: var(--card); border: 1px solid var(--line);
+      border-radius: 16px; padding: 13px 6px; min-height: 86px;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; gap: 7px;
+      transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease;
+    }
+    .product-tile:hover { transform: translateY(-3px); border-color: rgba(251, 191, 36, 0.65); background-color: var(--card2); }
+    .product-emoji { font-size: 26px; line-height: 1; user-select: none; }
+    .product-label { font-size: 11.5px; font-weight: 600; color: var(--text); line-height: 1.25; word-break: break-word; }
+
+    /* EMI */
+    .emi-stack { display: flex; flex-direction: column; gap: 11px; }
+    .emi-card {
+      position: relative; display: flex; flex-direction: column; gap: 11px;
+      padding: 14px 15px; background-color: var(--card);
+      border: 1px solid var(--line); border-radius: 16px;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .emi-card:hover { transform: translateY(-2px); border-color: var(--brand-color, var(--gold)); box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25); }
+    .emi-card:active { transform: scale(0.985); }
+    .emi-top { display: flex; align-items: center; gap: 12px; padding-right: 54px; }
+    .emi-logo {
+      width: 44px; height: 44px; border-radius: 12px;
+      background-color: var(--brand-color, var(--card2)); color: #ffffff;
+      font-size: 13px; font-weight: 800; letter-spacing: 0.4px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.18);
+    }
+    .emi-info { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+    .emi-name { font-size: 14.5px; font-weight: 700; color: var(--text); line-height: 1.2; }
+    .emi-sub { font-size: 12px; color: var(--muted); }
+    .emi-zero-badge {
+      position: absolute; top: 13px; right: 13px;
+      background: linear-gradient(135deg, #fde68a 0%, var(--gold) 60%, #f59e0b 100%);
+      color: #000000; font-size: 10px; font-weight: 800;
+      padding: 3px 9px; border-radius: 999px; letter-spacing: 0.3px;
+    }
+    .emi-chips { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; }
+    .emi-chip {
+      background-color: var(--card2); border: 1px solid var(--line);
+      color: var(--text); font-size: 11px; font-weight: 600;
+      padding: 3px 10px; border-radius: 999px;
+    }
+    .emi-disclaimer { font-size: 11px; color: var(--muted); text-align: center; margin-top: 10px; line-height: 1.45; }
+
+    /* INFO CARD */
+    .info-card {
+      background-color: var(--card); border: 1px solid var(--line);
+      border-radius: 18px; padding: 16px;
+      display: flex; flex-direction: column; gap: 12px;
+    }
+    .info-top { display: flex; align-items: flex-start; gap: 12px; }
+    .info-emoji {
+      width: 44px; height: 44px; border-radius: 12px;
+      background-color: var(--card2); border: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+    }
+    .info-body { flex: 1; min-width: 0; }
+    .timing-row { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
+    .info-heading { font-size: 15px; font-weight: 700; color: var(--text); }
+    .status-pill { font-size: 11.5px; font-weight: 700; padding: 3px 9px; border-radius: 999px; display: inline-flex; align-items: center; gap: 4px; }
+    .status-open { background-color: rgba(37, 211, 102, 0.14); color: #4ade80; border: 1px solid rgba(37, 211, 102, 0.35); }
+    .status-closed { background-color: rgba(239, 68, 68, 0.14); color: #f87171; border: 1px solid rgba(239, 68, 68, 0.35); }
+    .info-line { font-size: 13.5px; color: var(--text); font-weight: 500; margin-bottom: 3px; }
+    .info-note { font-size: 12px; color: var(--gold); font-weight: 600; }
+    .address-sub { font-size: 12.5px; color: var(--gold); font-weight: 600; margin-bottom: 4px; }
+    .address-full { font-size: 13px; color: var(--muted); line-height: 1.45; margin-bottom: 8px; }
+    .contact-meta {
+      display: flex; flex-direction: column; gap: 4px;
+      padding-top: 8px; border-top: 1px dashed var(--line);
+      font-size: 12.5px; color: var(--text);
+    }
+    .contact-meta a { color: var(--gold); font-weight: 600; }
+    .location-actions { display: flex; gap: 10px; margin-top: 2px; }
+    .btn-action {
+      flex: 1; min-height: 44px; padding: 10px 12px;
+      border-radius: 12px; font-size: 13.5px; font-weight: 700;
+      display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+      transition: transform 0.15s ease, opacity 0.15s ease;
+    }
+    .btn-action:active { transform: scale(0.975); }
+    .btn-gold { background: linear-gradient(135deg, var(--gold) 0%, #f59e0b 100%); color: #0b1220; border: none; }
+    .btn-ghost { background-color: var(--card2); color: var(--text); border: 1px solid var(--line); }
+    .btn-ghost:hover { border-color: var(--gold); }
+
+    /* ═══════════════════════════════════════════════════
+       🎁 SCRATCH & WIN CARD (no cooldown)
+       ═══════════════════════════════════════════════════ */
+    .scratch-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 2.2 / 1;
+      min-height: 155px;
+      border-radius: 18px;
+      overflow: hidden;
+      border: 2px solid var(--gold);
+      box-shadow: 0 10px 30px -8px rgba(251, 191, 36, 0.35), 0 4px 15px rgba(0, 0, 0, 0.4);
+    }
+    .scratch-prize {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 6px;
+      background: radial-gradient(circle at 30% 30%, #1e3a8a 0%, #0f172a 70%),
+                  linear-gradient(135deg, #0b1220, #1e293b);
+      text-align: center;
+      padding: 16px;
+    }
+    .prize-emoji { font-size: 52px; line-height: 1; filter: drop-shadow(0 4px 15px rgba(251, 191, 36, 0.5)); }
+    .prize-name {
+      font-size: 22px; font-weight: 900; letter-spacing: 0.5px;
+      background: linear-gradient(90deg, #fde68a, var(--gold), #f59e0b);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .prize-label { font-size: 11.5px; font-weight: 700; color: var(--gold); letter-spacing: 2px; text-transform: uppercase; }
+    .prize-sub { font-size: 11px; color: var(--muted); margin-top: 2px; }
+
+    #scratchCanvas {
+      position: absolute; inset: 0;
+      display: block; width: 100%; height: 100%;
+      cursor: crosshair;
+      touch-action: none;
+      user-select: none;
+      -webkit-user-select: none;
+      transition: opacity 0.6s ease;
+    }
+
+    .scratch-claim {
+      display: none;
+      width: 100%;
+      margin-top: 12px;
+      min-height: 46px;
+      padding: 12px 16px;
+      border-radius: 13px;
+      background: linear-gradient(135deg, var(--wa) 0%, #16a34a 100%);
+      color: #fff;
+      font-size: 14px; font-weight: 800;
+      align-items: center; justify-content: center; gap: 8px;
+      transition: transform 0.15s ease;
+    }
+    .scratch-claim:active { transform: scale(0.975); }
+
+    .scratch-note {
+      font-size: 11.5px; color: var(--muted);
+      text-align: center; margin-top: 10px;
+      line-height: 1.45;
+    }
+
+    /* FOOTER / SHARE / STICKY */
+    .footer { text-align: center; display: flex; flex-direction: column; gap: 4px; padding-top: 6px; color: var(--muted); font-size: 12px; }
+    .footer-brand { font-weight: 700; color: var(--text); font-size: 13px; }
+    .share-btn {
+      width: 100%; min-height: 48px; padding: 12px 16px;
+      background-color: transparent;
+      border: 1.5px dashed var(--line);
+      border-radius: 14px; color: var(--text);
+      font-size: 13.5px; font-weight: 600;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+      cursor: pointer;
+      transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.15s ease;
+    }
+    .share-btn:hover { border-color: var(--gold); background-color: rgba(251, 191, 36, 0.06); }
+    .share-btn:active { transform: scale(0.985); }
+
+    .sticky-bar {
+      position: fixed; bottom: 0; left: 0; right: 0; z-index: 50;
+      background: linear-gradient(180deg, rgba(11, 18, 32, 0.85) 0%, rgba(11, 18, 32, 0.98) 100%);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-top: 1px solid var(--line);
+      padding: 10px 16px calc(10px + env(safe-area-inset-bottom, 0px));
+    }
+    .sticky-inner { max-width: 480px; margin: 0 auto; display: flex; gap: 10px; }
+    .sticky-btn {
+      flex: 1; min-height: 46px; border-radius: 13px;
+      font-size: 14.5px; font-weight: 800;
+      display: flex; align-items: center; justify-content: center; gap: 7px;
+      transition: transform 0.15s ease;
+    }
+    .sticky-btn:active { transform: scale(0.975); }
+    .sticky-call { background: linear-gradient(135deg, #fde047 0%, var(--gold) 55%, #f59e0b 100%); color: #0b1220; }
+    .sticky-wa { background: linear-gradient(135deg, #25d366 0%, #16a34a 100%); color: #ffffff; }
+
+    @media (max-width: 350px) {
+      .shop-name { font-size: 22px; }
+      .welcome-greet { font-size: 19px; }
+      .products-grid { gap: 8px; }
+      .product-tile { padding: 10px 4px; }
+      .product-label { font-size: 10.5px; }
+      .prize-emoji { font-size: 42px; }
+      .prize-name { font-size: 18px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <main class="container">
+
+    <!-- HERO -->
+    <header class="hero">
+      <div class="logo-box" aria-label="Selmore Electronics Logo">
+        <svg class="logo-svg" viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Selmore Electronics">
+          <circle cx="120" cy="120" r="118" fill="#ffffff"/>
+          <circle cx="120" cy="120" r="112" fill="none" stroke="#1e50a2" stroke-width="3"/>
+          <circle cx="120" cy="86" r="14" fill="#e01e26"/>
+          <text x="120" y="92" font-family="Arial, sans-serif" font-weight="900" font-size="14" fill="#ffffff" text-anchor="middle">SE</text>
+          <text x="120" y="138" font-family="Arial, sans-serif" font-weight="900" font-size="40" fill="#1e50a2" text-anchor="middle" letter-spacing="-1">SELMORE</text>
+          <text x="120" y="160" font-family="Arial, sans-serif" font-weight="800" font-size="15" fill="#1e50a2" text-anchor="middle" letter-spacing="3">ELECTRONICS</text>
+          <rect x="22" y="170" width="196" height="19" rx="9.5" fill="#fbbf24"/>
+          <text x="120" y="183" font-family="Arial, sans-serif" font-weight="900" font-size="9" fill="#0b1220" text-anchor="middle" letter-spacing="0.4">40+ YEARS OF TRUST IN INDORE</text>
+          <rect x="52" y="197" width="18" height="12" rx="1.5" fill="none" stroke="#1e50a2" stroke-width="2"/>
+          <rect x="82" y="195" width="12" height="18" rx="1.5" fill="none" stroke="#1e50a2" stroke-width="2"/>
+          <rect x="106" y="195" width="15" height="18" rx="1.5" fill="none" stroke="#1e50a2" stroke-width="2"/>
+          <circle cx="113.5" cy="205" r="4" fill="none" stroke="#1e50a2" stroke-width="1.8"/>
+          <rect x="133" y="197" width="18" height="13" rx="1.5" fill="none" stroke="#1e50a2" stroke-width="2"/>
+          <rect x="163" y="195" width="10" height="18" rx="2" fill="none" stroke="#1e50a2" stroke-width="2"/>
+          <rect x="184" y="195" width="12" height="18" rx="1.5" fill="none" stroke="#1e50a2" stroke-width="2"/>
+        </svg>
+      </div>
+
+      <h1 class="shop-name">Selmore Electronics</h1>
+      <p class="tagline">40+ Years of Trust in Indore</p>
+
+      <div class="brand-pills" aria-label="Featured Brands">
+        <span class="brand-pill">SONY</span>
+        <span class="brand-pill">SAMSUNG</span>
+        <span class="brand-pill">LG</span>
+        <span class="brand-pill">&amp; MORE</span>
+      </div>
+
+      <div class="welcome-card">
+        <p class="welcome-top">🙏 Welcome to Selmore Electronics</p>
+        <p class="welcome-greet">आपका दिन शुभ हो ☀️</p>
+        <p class="welcome-sub">Smart TVs, ACs, Refrigerators, Sound Systems &amp; more — best deals with genuine warranty</p>
+      </div>
+    </header>
+
+    <!-- OFFER BANNER -->
+    <section aria-label="Festival Offers">
+      <a id="offerBanner" class="offer-banner" href="#" target="_blank" rel="noopener noreferrer" role="region" aria-live="polite" aria-label="Live Festival Offer - Click to inquire on WhatsApp">
+        <div class="offer-left">
+          <span id="offerEmoji" class="offer-emoji" aria-hidden="true">🪔</span>
+          <span class="offer-badge">LIVE</span>
+        </div>
+        <div class="offer-center">
+          <span id="offerText" class="offer-text">Festival Dhamaka — Smart TV pe best deal + free wall mount</span>
+        </div>
+        <span class="offer-arrow" aria-hidden="true">›</span>
+      </a>
+    </section>
+
+    <!-- CONNECT -->
+    <section aria-labelledby="connectHeading">
+      <div class="section-header">
+        <h2 id="connectHeading" class="section-title">🔗 Humse Judein</h2>
+      </div>
+
+      <div class="links-stack">
+        <a id="waMainBtn" class="connect-btn connect-wa" href="#" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+          <div class="connect-icon" aria-hidden="true">💬</div>
+          <div class="connect-content">
+            <div class="connect-title">WhatsApp Par Baat Karein</div>
+            <div class="connect-sub">Turant price aur best deal paayein</div>
+          </div>
+          <span class="connect-arrow" aria-hidden="true">›</span>
+        </a>
+
+        <a class="connect-btn connect-ig" href="https://instagram.com/selmore_electronics" target="_blank" rel="noopener noreferrer" aria-label="Follow selmore_electronics on Instagram">
+          <div class="connect-icon" aria-hidden="true">📸</div>
+          <div class="connect-content">
+            <div class="connect-title">Instagram Follow Karein</div>
+            <div class="connect-sub">@selmore_electronics · Latest offers &amp; reels</div>
+          </div>
+          <span class="connect-arrow" aria-hidden="true">›</span>
+        </a>
+
+        <a class="connect-btn connect-fb" href="https://www.facebook.com/SelmoreElectronics?mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" aria-label="Follow Selmore Electronics on Facebook">
+          <div class="connect-icon" aria-hidden="true">📘</div>
+          <div class="connect-content">
+            <div class="connect-title">Facebook Page Like Karein</div>
+            <div class="connect-sub">Selmore Electronics · Updates &amp; reviews</div>
+          </div>
+          <span class="connect-arrow" aria-hidden="true">›</span>
+        </a>
+
+        <a class="connect-btn connect-gr" href="https://www.google.com/maps/search/?api=1&query=Selmore+Electronics+42+MTH+Compound+Indore" target="_blank" rel="noopener noreferrer" aria-label="Rate Selmore Electronics on Google">
+          <div class="connect-icon" aria-hidden="true">⭐</div>
+          <div class="connect-content">
+            <div class="connect-title">Google Review Dein</div>
+            <div class="connect-sub">Apna anubhav share karein (5-Star Rating)</div>
+          </div>
+          <span class="connect-arrow" aria-hidden="true">›</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section aria-labelledby="productsHeading">
+      <div class="section-header">
+        <h2 id="productsHeading" class="section-title">🛒 Hamare Products</h2>
+      </div>
+      <div id="productsGrid" class="products-grid"></div>
+    </section>
+
+    <!-- EMI -->
+    <section aria-labelledby="emiHeading">
+      <div class="section-header">
+        <h2 id="emiHeading" class="section-title-lg">💳 EMI aur Finance Options</h2>
+        <p class="section-subtitle">Smart TVs, ACs, Refrigerators aur bade appliances ab aasaan kishton mein!</p>
+      </div>
+
+      <div id="emiStack" class="emi-stack"></div>
+
+      <p class="emi-disclaimer">
+        * Terms apply. Minimum ₹5,000 ki kharid par. Aadhar + PAN card zaroori hai.
+      </p>
+    </section>
+
+    <!-- TIMING -->
+    <section aria-labelledby="timingHeading">
+      <div class="section-header">
+        <h2 id="timingHeading" class="section-title">🕒 Dukaan Ka Samay</h2>
+      </div>
+
+      <div class="info-card">
+        <div class="info-top">
+          <div class="info-emoji" aria-hidden="true">🕒</div>
+          <div class="info-body">
+            <div class="timing-row">
+              <span class="info-heading">Somvaar – Ravivaar</span>
+              <span id="openStatusBadge" class="status-pill status-open" aria-live="polite">
+                🟢 Abhi Khula Hai
+              </span>
+            </div>
+            <p class="info-line">Subah 10:00 AM se Raat 9:00 PM tak</p>
+            <p class="info-note">Aapki seva mein sabhi din khula hai 🎉</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section aria-labelledby="locationHeading">
+      <div class="section-header">
+        <h2 id="locationHeading" class="section-title">📍 Hamari Location</h2>
+      </div>
+
+      <div class="info-card">
+        <div class="info-top">
+          <div class="info-emoji" aria-hidden="true">🏪</div>
+          <div class="info-body">
+            <div class="info-heading">Selmore Electronics</div>
+            <div class="address-sub">42 MTH Compound, Indore</div>
+            <p class="address-full">
+              42 MTH COMPOUND, Indore, India - 452007
+            </p>
+            <div class="contact-meta">
+              <div>📞 Phone: <a href="tel:9425422022">94254-22022</a></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="location-actions">
+          <a class="btn-action btn-gold" href="https://www.google.com/maps/search/?api=1&query=42+MTH+Compound+Indore+Madhya+Pradesh+452007" target="_blank" rel="noopener noreferrer" aria-label="Open Directions in Google Maps">
+            <span aria-hidden="true">🗺️</span> Directions
+          </a>
+          <a class="btn-action btn-ghost" href="tel:9425422022" aria-label="Call Selmore Electronics at 94254-22022">
+            <span aria-hidden="true">📞</span> Call Karein
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 🎁 SCRATCH & WIN (no cooldown) -->
+    <section aria-labelledby="scratchHeading">
+      <div class="section-header">
+        <h2 id="scratchHeading" class="section-title-lg">🎁 Scratch &amp; Win</h2>
+        <p class="section-subtitle">Ek scratch karein aur exciting prize jeetein!</p>
+      </div>
+
+      <div class="scratch-wrapper" id="scratchWrapper">
+        <!-- Prize layer (underneath) -->
+        <div class="scratch-prize" id="scratchPrize">
+          <div class="prize-label">🎉 Aapne Jeeta</div>
+          <div class="prize-emoji" id="prizeEmoji">🎧</div>
+          <div class="prize-name" id="prizeName">Neckband</div>
+          <div class="prize-sub">Screenshot le kar WhatsApp par bhejein</div>
+        </div>
+
+        <!-- Scratch surface -->
+        <canvas id="scratchCanvas" aria-label="Scratch card - rub to reveal your prize"></canvas>
+      </div>
+
+      <a id="scratchClaim" class="scratch-claim" href="#" target="_blank" rel="noopener noreferrer">
+        <span aria-hidden="true">💬</span> WhatsApp par Prize Claim Karein
+      </a>
+
+      <p class="scratch-note" id="scratchNote">
+        💡 Apni kismat aazmaayein — page kholne par 1 scratch!
+      </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <p class="footer-brand">Selmore Electronics · Indore (M.P.)</p>
+      <p>Sony · Samsung · LG · Genuine Products · Official Warranty</p>
+      <p>© 2026 All Rights Reserved</p>
+    </footer>
+
+    <!-- SHARE -->
+    <button id="shareBtn" type="button" class="share-btn" aria-label="Share this page with friends">
+      <span aria-hidden="true">🔗</span>
+      <span id="shareBtnText">Ye page apne dost ko share karein</span>
+    </button>
+
+  </main>
+
+  <!-- STICKY BAR -->
+  <nav class="sticky-bar" aria-label="Quick Contact Actions">
+    <div class="sticky-inner">
+      <a class="sticky-btn sticky-call" href="tel:9425422022" aria-label="Call 94254-22022">
+        <span aria-hidden="true">📞</span> Call
+      </a>
+      <a id="waStickyBtn" class="sticky-btn sticky-wa" href="#" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+        <span aria-hidden="true">💬</span> WhatsApp
+      </a>
+    </div>
+  </nav>
+
+  <script>
+    // ═══════════════════════════════════════════════════════════════
+    // ⚙️ CONFIGURATION
+    // ═══════════════════════════════════════════════════════════════
+
+    const WHATSAPP_NUMBER = "919425422022"; // Selmore Electronics
+
+    const OFFERS = [
+      {
+        emoji: "🪔",
+        text: "Festival Dhamaka — Smart TV pe best deal + free wall mount",
+        waText: "Namaste Selmore Electronics! Mujhe Festival Dhamaka (Smart TV Deal) ke baare mein jaankari chahiye."
+      },
+      {
+        emoji: "🌙",
+        text: "Special Offer — Double Door Fridge pe ₹3000 tak instant cashback",
+        waText: "Namaste Selmore Electronics! Mujhe Refrigerator Cashback offer ki jaankari chahiye."
+      },
+      {
+        emoji: "🎨",
+        text: "Mega Bonanza — Washing Machine pe 0% EMI + free installation",
+        waText: "Namaste Selmore Electronics! Mujhe Washing Machine 0% EMI offer ki jaankari chahiye."
+      },
+      {
+        emoji: "❄️",
+        text: "Season Sale — Split AC pe ₹2500 off + 5-year warranty",
+        waText: "Namaste Selmore Electronics! Mujhe Split AC offer ke baare mein jaankari chahiye."
+      },
+      {
+        emoji: "🔊",
+        text: "Sound Systems — Home theater aur soundbars par aasaan No-Cost EMI",
+        waText: "Namaste Selmore Electronics! Mujhe Sound Systems par EMI offer ki jaankari chahiye."
+      }
+    ];
+
+    const EMI_BRANDS = [
+      {
+        name: "Bajaj Finserv",
+        code: "BAJ",
+        color: "#6e3ff3",
+        tenures: ["3 mo", "6 mo", "9 mo"],
+        waText: "Namaste Selmore Electronics! Mujhe Bajaj Finserv Card se 0% No-Cost EMI par product lena hai."
+      },
+      {
+        name: "HDB Financial",
+        code: "HDB",
+        color: "#0055a4",
+        tenures: ["3 mo", "6 mo", "9 mo"],
+        waText: "Namaste Selmore Electronics! Mujhe HDB Financial se Easy EMI par product lena hai."
+      },
+      {
+        name: "IDFC First Bank",
+        code: "IDF",
+        color: "#f58220",
+        tenures: ["3 mo", "6 mo", "9 mo"],
+        waText: "Namaste Selmore Electronics! Mujhe IDFC First Bank se 0% EMI finance ke baare mein jaankari chahiye."
+      },
+      {
+        name: "HDFC Bank",
+        code: "HDFC",
+        color: "#004c8f",
+        tenures: ["3 mo", "6 mo", "9 mo"],
+        waText: "Namaste Selmore Electronics! Mujhe HDFC Bank EasyEMI option ke baare mein jaankari chahiye."
+      }
+    ];
+
+    const PRODUCTS = [
+      { emoji: "📺", label: "Smart LED TV" },
+      { emoji: "❄️", label: "Split / Window AC" },
+      { emoji: "🧊", label: "Refrigerator" },
+      { emoji: "🔊", label: "Sound Systems" },
+      { emoji: "🧺", label: "Washing Machine" },
+      { emoji: "💻", label: "Laptops" },
+      { emoji: "📱", label: "Mobiles" },
+      { emoji: "🔊", label: "Home Theater" },
+      { emoji: "🎧", label: "Headphones" },
+      { emoji: "🍲", label: "Microwave Oven" },
+      { emoji: "🥤", label: "Mixer Grinder" },
+      { emoji: "🍳", label: "Induction" },
+      { emoji: "💧", label: "Water Purifier" },
+      { emoji: "🌬️", label: "Air Cooler" },
+      { emoji: "🚿", label: "Geyser" },
+      { emoji: "🌀", label: "Ceiling Fans" },
+      { emoji: "🔋", label: "Inverter & Battery" },
+      { emoji: "🔌", label: "Accessories" }
+    ];
+
+    // ═══════════════════════════════════════════════════════════════
+    // 🚀 APP LOGIC
+    // ═══════════════════════════════════════════════════════════════
+
+    function makeWhatsAppUrl(message) {
+      return "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+    }
+
+    function syncWhatsAppLinks() {
+      const waMainBtn = document.getElementById("waMainBtn");
+      const waStickyBtn = document.getElementById("waStickyBtn");
+      if (waMainBtn) waMainBtn.href = makeWhatsAppUrl("Namaste Selmore Electronics! Mujhe products aur offers ke baare mein puchna hai.");
+      if (waStickyBtn) waStickyBtn.href = makeWhatsAppUrl("Namaste Selmore Electronics! Mujhe ek product ki jaankari chahiye.");
+    }
+
+    function renderProducts() {
+      const grid = document.getElementById("productsGrid");
+      if (!grid) return;
+      grid.innerHTML = PRODUCTS.map(function (item) {
+        return '<div class="product-tile">' +
+                 '<span class="product-emoji" aria-hidden="true">' + item.emoji + '</span>' +
+                 '<span class="product-label">' + item.label + '</span>' +
+               '</div>';
+      }).join("");
+    }
+
+    function renderEmiBrands() {
+      const stack = document.getElementById("emiStack");
+      if (!stack) return;
+      stack.innerHTML = EMI_BRANDS.map(function (brand) {
+        const chipsHtml = brand.tenures.map(function (t) {
+          return '<span class="emi-chip">' + t + '</span>';
+        }).join("");
+        return '<a class="emi-card" href="' + makeWhatsAppUrl(brand.waText) + '" ' +
+               'target="_blank" rel="noopener noreferrer" ' +
+               'style="--brand-color: ' + brand.color + ';" ' +
+               'aria-label="' + brand.name + ' - No-Cost EMI available.">' +
+                 '<span class="emi-zero-badge">0% EMI</span>' +
+                 '<div class="emi-top">' +
+                   '<div class="emi-logo" aria-hidden="true">' + brand.code + '</div>' +
+                   '<div class="emi-info">' +
+                     '<div class="emi-name">' + brand.name + '</div>' +
+                     '<div class="emi-sub">No-Cost EMI available</div>' +
+                   '</div>' +
+                 '</div>' +
+                 '<div class="emi-chips">' + chipsHtml + '</div>' +
+               '</a>';
+      }).join("");
+    }
+
+    function initOfferBanner() {
+      const bannerEl = document.getElementById("offerBanner");
+      const emojiEl = document.getElementById("offerEmoji");
+      const textEl = document.getElementById("offerText");
+      if (!bannerEl || !emojiEl || !textEl || !OFFERS.length) return;
+
+      let currentIndex = 0;
+      let isPaused = false;
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      function applyOffer(index, animate) {
+        const offer = OFFERS[index];
+        if (!offer) return;
+        if (!animate || prefersReducedMotion) {
+          emojiEl.textContent = offer.emoji;
+          textEl.textContent = offer.text;
+          bannerEl.href = makeWhatsAppUrl(offer.waText);
+          return;
+        }
+        emojiEl.classList.add("is-changing");
+        textEl.classList.add("is-changing");
+        setTimeout(function () {
+          emojiEl.textContent = offer.emoji;
+          textEl.textContent = offer.text;
+          bannerEl.href = makeWhatsAppUrl(offer.waText);
+          emojiEl.classList.remove("is-changing");
+          textEl.classList.remove("is-changing");
+        }, 260);
+      }
+
+      applyOffer(0, false);
+
+      if (!prefersReducedMotion && OFFERS.length > 1) {
+        setInterval(function () {
+          if (isPaused) return;
+          currentIndex = (currentIndex + 1) % OFFERS.length;
+          applyOffer(currentIndex, true);
+        }, 3500);
+      }
+
+      bannerEl.addEventListener("mouseenter", function () { isPaused = true; });
+      bannerEl.addEventListener("mouseleave", function () { isPaused = false; });
+      bannerEl.addEventListener("touchstart", function () { isPaused = true; }, { passive: true });
+      bannerEl.addEventListener("touchend", function () { isPaused = false; }, { passive: true });
+      bannerEl.addEventListener("touchcancel", function () { isPaused = false; }, { passive: true });
+    }
+
+    function updateShopStatus() {
+      const badge = document.getElementById("openStatusBadge");
+      if (!badge) return;
+      const now = new Date();
+      const hour = now.getHours();
+      const isOpen = hour >= 10 && hour < 21;
+      if (isOpen) {
+        badge.className = "status-pill status-open";
+        badge.textContent = "🟢 Abhi Khula Hai";
+      } else {
+        badge.className = "status-pill status-closed";
+        badge.textContent = "🔴 Abhi Band Hai";
+      }
+    }
+
+    function initShareButton() {
+      const shareBtn = document.getElementById("shareBtn");
+      const shareBtnText = document.getElementById("shareBtnText");
+      if (!shareBtn) return;
+
+      shareBtn.addEventListener("click", function () {
+        const shareData = {
+          title: "Selmore Electronics — Indore",
+          text: "Selmore Electronics (42 MTH Compound, Indore) — 40+ Years of Trust. Smart TVs, ACs, Refrigerators, Sound Systems & 0% EMI!",
+          url: window.location.href
+        };
+        if (navigator.share) {
+          navigator.share(shareData).catch(function () {});
+        } else if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(window.location.href).then(function () {
+            const original = shareBtnText.textContent;
+            shareBtnText.textContent = "✅ Link copy ho gaya!";
+            setTimeout(function () { shareBtnText.textContent = original; }, 2500);
+          }).catch(function () { alert("Page Link: " + window.location.href); });
+        } else {
+          alert("Page Link: " + window.location.href);
+        }
+      });
+    }
+
+    // ═══════════════════════════════════════════════════════════════
+    // 🎁 SCRATCH & WIN LOGIC (no cooldown — 1 scratch per page visit)
+    // ═══════════════════════════════════════════════════════════════
+
+    const REVEAL_THRESHOLD = 0.45; // 45% scratched = auto reveal
+
+    // Prize distribution (higher = more likely)
+    // Neckband 60% > Airpods 20% > Speaker 12% > Watch 8%
+    function pickPrize() {
+      const r = Math.random() * 100;
+      if (r < 60) return { emoji: "🎧", name: "Neckband" };
+      if (r < 80) return { emoji: "🎵", name: "Airpods" };
+      if (r < 92) return { emoji: "🔊", name: "Speaker" };
+      return { emoji: "⌚", name: "Watch" };
+    }
+
+    function initScratchCard() {
+      const wrapper = document.getElementById("scratchWrapper");
+      const canvas = document.getElementById("scratchCanvas");
+      const prizeEl = document.getElementById("scratchPrize");
+      const claimBtn = document.getElementById("scratchClaim");
+      const noteEl = document.getElementById("scratchNote");
+      const prizeEmoji = document.getElementById("prizeEmoji");
+      const prizeName = document.getElementById("prizeName");
+
+      if (!wrapper || !canvas) return;
+
+      // Pick prize for this page visit
+      const prize = pickPrize();
+      prizeEmoji.textContent = prize.emoji;
+      prizeName.textContent = prize.name;
+
+      prizeEl.style.display = "flex";
+      claimBtn.style.display = "none";
+      noteEl.textContent = "💡 Apni kismat aazmaayein — scratch karein!";
+
+      // Setup canvas after layout
+      requestAnimationFrame(function () {
+        setupCanvas();
+      });
+
+      function setupCanvas() {
+        const rect = wrapper.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        canvas.style.width = rect.width + "px";
+        canvas.style.height = rect.height + "px";
+        canvas.style.opacity = "1";
+        canvas.style.pointerEvents = "auto";
+
+        const ctx = canvas.getContext("2d");
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+        ctx.scale(dpr, dpr);
+
+        drawScratchSurface(ctx, rect.width, rect.height);
+
+        let isDrawing = false;
+        let revealed = false;
+        let lastCheck = 0;
+
+        function getPos(e) {
+          const r = canvas.getBoundingClientRect();
+          let clientX, clientY;
+          if (e.touches && e.touches.length) {
+            clientX = e.touches[0].clientX;
+            clientY = e.touches[0].clientY;
+          } else if (e.changedTouches && e.changedTouches.length) {
+            clientX = e.changedTouches[0].clientX;
+            clientY = e.changedTouches[0].clientY;
+          } else {
+            clientX = e.clientX;
+            clientY = e.clientY;
+          }
+          return { x: clientX - r.left, y: clientY - r.top };
+        }
+
+        function scratchAt(x, y) {
+          if (revealed) return;
+          ctx.globalCompositeOperation = "destination-out";
+          ctx.beginPath();
+          ctx.arc(x, y, 24, 0, Math.PI * 2);
+          ctx.fill();
+
+          const t = Date.now();
+          if (t - lastCheck > 180) {
+            lastCheck = t;
+            checkProgress();
+          }
+        }
+
+        function checkProgress() {
+          if (revealed) return;
+          let imgData;
+          try {
+            imgData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+          } catch (err) {
+            return;
+          }
+          const data = imgData.data;
+          let cleared = 0;
+          for (let i = 3; i < data.length; i += 4) {
+            if (data[i] < 128) cleared++;
+          }
+          const percent = cleared / (data.length / 4);
+          if (percent >= REVEAL_THRESHOLD) reveal();
+        }
+
+        function reveal() {
+          if (revealed) return;
+          revealed = true;
+
+          canvas.style.opacity = "0";
+          canvas.style.pointerEvents = "none";
+
+          // Show claim button
+          claimBtn.style.display = "inline-flex";
+          const claimMsg = "Namaste Selmore Electronics! Maine Scratch & Win se " + prize.name + " (" + prize.emoji + ") jeeta hai. Kaise claim karun?";
+          claimBtn.href = makeWhatsAppUrl(claimMsg);
+
+          noteEl.textContent = "🎉 Badhai ho! Aapne jeeta " + prize.emoji + " " + prize.name + " — WhatsApp par claim karein!";
+        }
+
+        function onDown(e) {
+          if (revealed) return;
+          isDrawing = true;
+          const p = getPos(e);
+          scratchAt(p.x, p.y);
+        }
+        function onMove(e) {
+          if (!isDrawing || revealed) return;
+          e.preventDefault();
+          const p = getPos(e);
+          scratchAt(p.x, p.y);
+        }
+        function onUp() { isDrawing = false; }
+
+        canvas.addEventListener("mousedown", onDown);
+        canvas.addEventListener("mousemove", onMove);
+        canvas.addEventListener("mouseup", onUp);
+        canvas.addEventListener("mouseleave", onUp);
+        canvas.addEventListener("touchstart", onDown, { passive: true });
+        canvas.addEventListener("touchmove", onMove, { passive: false });
+        canvas.addEventListener("touchend", onUp);
+        canvas.addEventListener("touchcancel", onUp);
+      }
+    }
+
+    function drawScratchSurface(ctx, w, h) {
+      // Gold gradient
+      const grad = ctx.createLinearGradient(0, 0, w, h);
+      grad.addColorStop(0, "#c9a227");
+      grad.addColorStop(0.35, "#fbbf24");
+      grad.addColorStop(0.65, "#f59e0b");
+      grad.addColorStop(1, "#b8860b");
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, w, h);
+
+      // Diagonal shimmer stripes
+      ctx.save();
+      ctx.globalAlpha = 0.12;
+      ctx.fillStyle = "#ffffff";
+      for (let i = -h; i < w + h; i += 26) {
+        ctx.beginPath();
+        ctx.moveTo(i, 0);
+        ctx.lineTo(i + 12, 0);
+        ctx.lineTo(i + 12 - h, h);
+        ctx.lineTo(i - h, h);
+        ctx.closePath();
+        ctx.fill();
+      }
+      ctx.restore();
+
+      // Small dot pattern
+      ctx.fillStyle = "rgba(0,0,0,0.08)";
+      for (let x = 10; x < w; x += 22) {
+        for (let y = 10; y < h; y += 22) {
+          ctx.beginPath();
+          ctx.arc(x, y, 1.4, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      // Text content
+      ctx.textAlign = "center";
+      ctx.textBaseline = "middle";
+
+      ctx.fillStyle = "#0b1220";
+      ctx.font = "900 " + Math.min(20, w * 0.05) + "px Arial, sans-serif";
+      ctx.fillText("SCRATCH & WIN", w / 2, h / 2 - 14);
+
+      ctx.fillStyle = "rgba(11,18,32,0.78)";
+      ctx.font = "700 " + Math.min(12, w * 0.03) + "px Arial, sans-serif";
+      ctx.fillText("🎁 Rub karein apna prize dekhne ke liye", w / 2, h / 2 + 10);
+
+      ctx.fillStyle = "rgba(11,18,32,0.6)";
+      ctx.font = "600 " + Math.min(10, w * 0.026) + "px Arial, sans-serif";
+      ctx.fillText("1 scratch per visit", w / 2, h / 2 + 30);
+    }
+
+    // ═══════════════════════════════════════════════════════════════
+    // 🚀 BOOT
+    // ═══════════════════════════════════════════════════════════════
+    document.addEventListener("DOMContentLoaded", function () {
+      syncWhatsAppLinks();
+      renderProducts();
+      renderEmiBrands();
+      initOfferBanner();
+      updateShopStatus();
+      setInterval(updateShopStatus, 60000);
+      initShareButton();
+      initScratchCard();
+    });
+  </script>
+</body>
+</html>
