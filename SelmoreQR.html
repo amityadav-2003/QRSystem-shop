@@ -8,7 +8,10 @@
 3. INSTAGRAM            : @selmore_electronics
 4. FACEBOOK             : facebook.com/SelmoreElectronics
 5. ADDRESS              : 42 MTH COMPOUND, Indore, India 452007
-6. SCRATCH CARD         : 1 scratch per page visit (no timer).
+6. SCRATCH CARD         : Locked until user does BOTH:
+                          - Follows Instagram (@selmore_electronics)
+                          - Gives Google Review
+                          Once unlocked (localStorage), stays unlocked.
                           Prize odds: Neckband 60%, Airpods 20%, Speaker 12%, Watch 8%
 7. OFFERS / PRODUCTS    : Edit OFFERS, PRODUCTS, EMI_BRANDS arrays at bottom
 ═══════════════════════════════════════════════════════════════════════════════
@@ -263,7 +266,7 @@
     .btn-ghost:hover { border-color: var(--gold); }
 
     /* ═══════════════════════════════════════════════════
-       🎁 SCRATCH & WIN CARD (no cooldown)
+       🎁 SCRATCH & WIN CARD — TASK-GATED
        ═══════════════════════════════════════════════════ */
     .scratch-wrapper {
       position: relative;
@@ -275,6 +278,13 @@
       border: 2px solid var(--gold);
       box-shadow: 0 10px 30px -8px rgba(251, 191, 36, 0.35), 0 4px 15px rgba(0, 0, 0, 0.4);
     }
+
+    .scratch-wrapper.locked-mode {
+      aspect-ratio: auto;
+      min-height: 260px;
+      background: linear-gradient(135deg, #1e293b, #0f172a);
+    }
+
     .scratch-prize {
       position: absolute; inset: 0;
       display: flex; flex-direction: column;
@@ -302,6 +312,91 @@
       user-select: none;
       -webkit-user-select: none;
       transition: opacity 0.6s ease;
+    }
+
+    /* 🔒 Locked state with tasks */
+    .scratch-locked {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 10px;
+      background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+      text-align: center;
+      padding: 14px;
+    }
+    .locked-icon { font-size: 28px; line-height: 1; animation: pulseIcon 2s ease-in-out infinite; }
+    @keyframes pulseIcon {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.1); opacity: 0.85; }
+    }
+    .locked-title {
+      font-size: 12.5px; font-weight: 700;
+      color: var(--text); line-height: 1.3;
+      padding: 0 6px;
+    }
+
+    .tasks-list {
+      display: flex; flex-direction: column; gap: 8px;
+      width: 100%; margin: 2px 0;
+    }
+    .task-btn {
+      display: flex; align-items: center; gap: 10px;
+      padding: 10px 12px;
+      background-color: var(--card2);
+      border: 1.5px solid var(--line);
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: left;
+      width: 100%;
+      font-family: inherit;
+      color: var(--text);
+      -webkit-tap-highlight-color: transparent;
+    }
+    .task-btn:hover { border-color: var(--gold); background-color: rgba(251, 191, 36, 0.06); }
+    .task-btn:active { transform: scale(0.98); }
+    .task-btn.done {
+      background-color: rgba(37, 211, 102, 0.12);
+      border-color: rgba(37, 211, 102, 0.55);
+      pointer-events: none;
+    }
+    .task-check {
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      background: var(--bg1);
+      border: 1.5px solid var(--muted);
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 12px; font-weight: 900;
+      color: transparent;
+      flex-shrink: 0;
+      transition: all 0.25s ease;
+    }
+    .task-btn.done .task-check {
+      background: var(--wa);
+      border-color: var(--wa);
+      color: #ffffff;
+    }
+    .task-emoji { font-size: 18px; line-height: 1; flex-shrink: 0; }
+    .task-label {
+      font-size: 12.5px;
+      font-weight: 600;
+      line-height: 1.25;
+      flex: 1;
+      min-width: 0;
+    }
+    .task-btn.done .task-label {
+      color: #4ade80;
+    }
+
+    .locked-hint {
+      font-size: 10.5px;
+      color: var(--muted);
+      margin-top: 2px;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+    .locked-hint.complete {
+      color: #4ade80;
     }
 
     .scratch-claim {
@@ -368,6 +463,8 @@
       .product-label { font-size: 10.5px; }
       .prize-emoji { font-size: 42px; }
       .prize-name { font-size: 18px; }
+      .task-label { font-size: 11.5px; }
+      .locked-title { font-size: 11.5px; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after {
@@ -558,16 +655,16 @@
       </div>
     </section>
 
-    <!-- 🎁 SCRATCH & WIN (no cooldown) -->
+    <!-- 🎁 SCRATCH & WIN (TASK-GATED) -->
     <section aria-labelledby="scratchHeading">
       <div class="section-header">
         <h2 id="scratchHeading" class="section-title-lg">🎁 Scratch &amp; Win</h2>
-        <p class="section-subtitle">Ek scratch karein aur exciting prize jeetein!</p>
+        <p class="section-subtitle">Instagram follow + Google review ke baad scratch unlock hoga!</p>
       </div>
 
-      <div class="scratch-wrapper" id="scratchWrapper">
+      <div class="scratch-wrapper locked-mode" id="scratchWrapper">
         <!-- Prize layer (underneath) -->
-        <div class="scratch-prize" id="scratchPrize">
+        <div class="scratch-prize" id="scratchPrize" style="display:none">
           <div class="prize-label">🎉 Aapne Jeeta</div>
           <div class="prize-emoji" id="prizeEmoji">🎧</div>
           <div class="prize-name" id="prizeName">Neckband</div>
@@ -575,7 +672,40 @@
         </div>
 
         <!-- Scratch surface -->
-        <canvas id="scratchCanvas" aria-label="Scratch card - rub to reveal your prize"></canvas>
+        <canvas id="scratchCanvas" aria-label="Scratch card - rub to reveal your prize" style="display:none"></canvas>
+
+        <!-- 🔒 Locked state with tasks -->
+        <div class="scratch-locked" id="scratchLocked">
+          <div class="locked-icon">🔒</div>
+          <div class="locked-title">Scratch unlock karne ke liye ye 2 kaam karein:</div>
+          <div class="tasks-list">
+            <a
+              href="https://instagram.com/selmore_electronics"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="task-btn"
+              id="taskIg"
+              aria-label="Follow Selmore Electronics on Instagram"
+            >
+              <span class="task-check" aria-hidden="true">✓</span>
+              <span class="task-emoji" aria-hidden="true">📸</span>
+              <span class="task-label">Instagram par Follow karein</span>
+            </a>
+            <a
+              href="https://www.google.com/maps/search/?api=1&query=Selmore+Electronics+42+MTH+Compound+Indore"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="task-btn"
+              id="taskReview"
+              aria-label="Give 5-star review on Google Maps"
+            >
+              <span class="task-check" aria-hidden="true">✓</span>
+              <span class="task-emoji" aria-hidden="true">⭐</span>
+              <span class="task-label">Google par 5-Star Review dein</span>
+            </a>
+          </div>
+          <div class="locked-hint" id="lockedHint">Progress: 0 / 2 complete</div>
+        </div>
       </div>
 
       <a id="scratchClaim" class="scratch-claim" href="#" target="_blank" rel="noopener noreferrer">
@@ -583,7 +713,7 @@
       </a>
 
       <p class="scratch-note" id="scratchNote">
-        💡 Apni kismat aazmaayein — page kholne par 1 scratch!
+        🔒 Pehle dono kaam poore karein — phir prize scratch karein!
       </p>
     </section>
 
@@ -839,10 +969,13 @@
     }
 
     // ═══════════════════════════════════════════════════════════════
-    // 🎁 SCRATCH & WIN LOGIC (no cooldown — 1 scratch per page visit)
+    // 🎁 SCRATCH & WIN LOGIC — TASK-GATED
     // ═══════════════════════════════════════════════════════════════
 
-    const REVEAL_THRESHOLD = 0.45; // 45% scratched = auto reveal
+    const TASKS_KEY = "selmore_tasks_done_v1"; // localStorage: "1" when both tasks done
+    const REVEAL_THRESHOLD = 0.45;             // 45% scratched = auto reveal
+    const IG_URL = "https://instagram.com/selmore_electronics";
+    const GOOGLE_REVIEW_URL = "https://www.google.com/maps/search/?api=1&query=Selmore+Electronics+42+MTH+Compound+Indore";
 
     // Prize distribution (higher = more likely)
     // Neckband 60% > Airpods 20% > Speaker 12% > Watch 8%
@@ -858,28 +991,94 @@
       const wrapper = document.getElementById("scratchWrapper");
       const canvas = document.getElementById("scratchCanvas");
       const prizeEl = document.getElementById("scratchPrize");
+      const lockedEl = document.getElementById("scratchLocked");
+      const lockedHint = document.getElementById("lockedHint");
+      const taskIg = document.getElementById("taskIg");
+      const taskReview = document.getElementById("taskReview");
       const claimBtn = document.getElementById("scratchClaim");
       const noteEl = document.getElementById("scratchNote");
       const prizeEmoji = document.getElementById("prizeEmoji");
       const prizeName = document.getElementById("prizeName");
 
-      if (!wrapper || !canvas) return;
+      if (!wrapper || !canvas || !lockedEl) return;
 
-      // Pick prize for this page visit
-      const prize = pickPrize();
-      prizeEmoji.textContent = prize.emoji;
-      prizeName.textContent = prize.name;
+      // Has user already completed both tasks before?
+      const tasksAlreadyDone = localStorage.getItem(TASKS_KEY) === "1";
 
-      prizeEl.style.display = "flex";
-      claimBtn.style.display = "none";
-      noteEl.textContent = "💡 Apni kismat aazmaayein — scratch karein!";
+      if (tasksAlreadyDone) {
+        unlockScratch(false);
+      } else {
+        showLocked();
+      }
 
-      // Setup canvas after layout
-      requestAnimationFrame(function () {
-        setupCanvas();
-      });
+      // ───────── LOCKED STATE ─────────
+      function showLocked() {
+        wrapper.classList.add("locked-mode");
+        lockedEl.style.display = "flex";
+        prizeEl.style.display = "none";
+        canvas.style.display = "none";
+        claimBtn.style.display = "none";
+        noteEl.textContent = "🔒 Pehle dono kaam poore karein — phir prize scratch karein!";
 
-      function setupCanvas() {
+        let igDone = false;
+        let reviewDone = false;
+
+        function refreshProgress() {
+          const count = (igDone ? 1 : 0) + (reviewDone ? 1 : 0);
+          lockedHint.textContent = "Progress: " + count + " / 2 complete";
+          if (count === 2) {
+            lockedHint.textContent = "✅ Dono kaam poore! Scratch unlock ho raha hai...";
+            lockedHint.classList.add("complete");
+            localStorage.setItem(TASKS_KEY, "1");
+            setTimeout(function () { unlockScratch(true); }, 700);
+          }
+        }
+
+        // Attach click handlers (links still open because they're <a target="_blank">)
+        taskIg.addEventListener("click", function () {
+          if (igDone) return;
+          igDone = true;
+          taskIg.classList.add("done");
+          refreshProgress();
+        });
+
+        taskReview.addEventListener("click", function () {
+          if (reviewDone) return;
+          reviewDone = true;
+          taskReview.classList.add("done");
+          refreshProgress();
+        });
+      }
+
+      // ───────── UNLOCKED STATE ─────────
+      function unlockScratch(animate) {
+        wrapper.classList.remove("locked-mode");
+        lockedEl.style.display = "none";
+        prizeEl.style.display = "flex";
+        canvas.style.display = "block";
+        claimBtn.style.display = "none";
+
+        // Pick a fresh prize per page visit
+        const prize = pickPrize();
+        prizeEmoji.textContent = prize.emoji;
+        prizeName.textContent = prize.name;
+
+        if (animate) {
+          noteEl.textContent = "🎉 Unlocked! Apna scratch card rub karein 👇";
+        } else {
+          noteEl.textContent = "🎁 Apna scratch card rub karein!";
+        }
+
+        // Wait for layout (aspect-ratio change) to settle before sizing canvas
+        requestAnimationFrame(function () {
+          requestAnimationFrame(function () {
+            setupCanvas(prize);
+          });
+        });
+      }
+
+      // ───────── CANVAS SCRATCH MECHANIC ─────────
+      function setupCanvas(prize) {
         const rect = wrapper.getBoundingClientRect();
         const dpr = window.devicePixelRatio || 1;
 
@@ -954,7 +1153,6 @@
           canvas.style.opacity = "0";
           canvas.style.pointerEvents = "none";
 
-          // Show claim button
           claimBtn.style.display = "inline-flex";
           const claimMsg = "Namaste Selmore Electronics! Maine Scratch & Win se " + prize.name + " (" + prize.emoji + ") jeeta hai. Kaise claim karun?";
           claimBtn.href = makeWhatsAppUrl(claimMsg);
