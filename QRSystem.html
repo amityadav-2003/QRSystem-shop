@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="theme-color" content="#05100a" />
+<title>Amit Creation – One QR System | Apne Business ko Digital Banayein</title>
+<meta name="description" content="Ek QR Code jisse customer aapke WhatsApp, Instagram, Google Review aur Website se judega. Sirf ₹69/month mein." />
+
+<style>
+  /* === GLOBAL & THEME VARIABLES === */
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  
+  :root {
+    /* Premium Green Theme */
+    --bg: #05100a;           /* Deep dark green/black */
+    --bg-card: #0a1c12;      /* Slightly lighter green for cards */
+    --bg-card2: #112a1c;     /* Hover states */
+    --line: #1f402c;         /* Greenish borders */
+    --text: #f3f4f6;
+    --muted: #9ca3af;
+    
+    /* Brand Colors */
+    --brand: #10b981;        /* Emerald Green */
+    --brand-light: #34d399;  
+    --brand-glow: rgba(16, 185, 129, 0.25);
+    --wa: #25d366;
+    --grad-gold: linear-gradient(135deg, #fbbf24, #f59e0b);
+    --grad-brand: linear-gradient(135deg, #10b981, #059669);
+  }
+
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: -apple-system, "Segoe UI", Roboto, "Noto Sans Devanagari", sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    padding-bottom: 80px; /* For sticky bar */
+  }
+
+  .container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+  /* === HEADER === */
+  header { 
+    padding: 20px 0; border-bottom: 1px solid var(--line); 
+    background: rgba(5, 16, 10, 0.8); backdrop-filter: blur(10px); position: sticky; top: 0; z-index: 90;
+  }
+  .header-inner { display: flex; justify-content: space-between; align-items: center; }
+  .logo-text { font-size: 22px; font-weight: 800; letter-spacing: 1px; }
+  .logo-text span { color: var(--brand-light); }
+  .logo-sub { font-size: 11px; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; margin-top: 2px; }
+  .header-btn {
+    display: none; background: var(--bg-card2); border: 1px solid var(--line); color: var(--text);
+    padding: 8px 16px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; transition: 0.3s;
+  }
+  .header-btn:hover { border-color: var(--brand); color: var(--brand); }
+
+  /* === HERO SECTION (Responsive Grid) === */
+  .hero { padding: 60px 0; position: relative; }
+  .hero-grid { display: grid; grid-template-columns: 1fr; gap: 40px; align-items: center; }
+  
+  .hero-content { text-align: center; }
+  .badge-top {
+    display: inline-block; padding: 6px 14px; border-radius: 20px; font-size: 12px; font-weight: 700;
+    background: rgba(16, 185, 129, 0.1); color: var(--brand-light); border: 1px solid rgba(16, 185, 129, 0.3); margin-bottom: 20px;
+  }
+  h1 { font-size: 38px; line-height: 1.2; margin-bottom: 16px; font-weight: 800; }
+  h1 span { 
+    background: linear-gradient(135deg, var(--brand-light), #059669); 
+    -webkit-background-clip: text; color: transparent; 
+  }
+  .hero-content p { font-size: 16px; color: var(--muted); max-width: 600px; margin: 0 auto 30px; }
+  
+  .cta-btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--grad-brand); color: #fff; font-weight: 800; font-size: 16px;
+    padding: 16px 32px; border-radius: 12px; text-decoration: none; transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 10px 25px var(--brand-glow); width: 100%; max-width: 300px;
+  }
+  .cta-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 35px var(--brand-glow); }
+
+  /* Hero Image / QR Mockup (Desktop only layout support) */
+  .hero-visual { display: flex; justify-content: center; align-items: center; }
+  .qr-mockup {
+    width: 280px; height: 380px; background: var(--bg-card); border: 2px solid var(--line);
+    border-radius: 30px; padding: 20px; display: flex; flex-direction: column; align-items: center;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5), inset 0 0 20px rgba(16, 185, 129, 0.05);
+    position: relative; animation: float 4s ease-in-out infinite;
+  }
+  @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+  .qr-mockup::before {
+    content: 'SCAN ME'; position: absolute; top: -12px; background: var(--brand); color: #000;
+    font-size: 10px; font-weight: 800; padding: 4px 12px; border-radius: 10px; letter-spacing: 1px;
+  }
+  .qr-box {
+    width: 180px; height: 180px; background: #fff; border-radius: 16px; margin-top: 30px;
+    display: grid; place-items: center; border: 8px solid var(--brand-light);
+  }
+  .qr-box img { width: 100%; height: 100%; object-fit: contain; opacity: 0.8; }
+  .qr-lines { width: 80%; height: 10px; background: var(--bg-card2); border-radius: 5px; margin-top: 20px; }
+  .qr-lines.short { width: 50%; }
+
+  /* === PROBLEM / SOLUTION === */
+  .compare-section { padding: 60px 0; }
+  .compare-grid { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 30px; }
+  .comp-card { background: var(--bg-card); border: 1px solid var(--line); padding: 30px; border-radius: 20px; }
+  .comp-card.bad { border-color: rgba(239, 68, 68, 0.3); }
+  .comp-card.good { border-color: rgba(16, 185, 129, 0.5); background: rgba(16, 185, 129, 0.05); box-shadow: 0 10px 30px rgba(16,185,129,0.05); }
+  .comp-card h3 { font-size: 18px; margin-bottom: 15px; display: flex; align-items: center; gap: 8px; }
+  .comp-card.bad h3 { color: #ef4444; }
+  .comp-card.good h3 { color: var(--brand-light); }
+  .comp-card ul { list-style: none; font-size: 14px; color: var(--muted); }
+  .comp-card li { margin-bottom: 12px; display: flex; gap: 8px; }
+  
+  /* === FEATURES === */
+  .features { padding: 80px 0; background: var(--bg-card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); text-align: center; }
+  .section-title { font-size: 28px; margin-bottom: 40px; font-weight: 800; }
+  .features-grid { display: grid; grid-template-columns: 1fr; gap: 20px; text-align: left; }
+  .feature-card { background: var(--bg); padding: 30px; border-radius: 20px; border: 1px solid var(--line); transition: 0.3s; }
+  .feature-card:hover { border-color: var(--brand); transform: translateY(-5px); }
+  .feature-card .icon { font-size: 32px; margin-bottom: 15px; display: block; }
+  .feature-card h3 { font-size: 18px; margin-bottom: 10px; color: var(--brand-light); }
+  .feature-card p { font-size: 14px; color: var(--muted); }
+
+  /* === PRICING === */
+  .pricing { padding: 80px 0; text-align: center; }
+  .price-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-top: 40px; max-width: 800px; margin-inline: auto; }
+  .price-card {
+    background: var(--bg-card); border: 1px solid var(--line); border-radius: 24px; padding: 40px 30px;
+    position: relative; display: flex; flex-direction: column; transition: 0.3s;
+  }
+  .price-card.popular { 
+    border-color: var(--brand); 
+    background: linear-gradient(180deg, rgba(16,185,129,0.08) 0%, var(--bg-card) 100%); 
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  }
+  .pop-badge {
+    position: absolute; top: -14px; left: 50%; transform: translateX(-50%);
+    background: var(--grad-gold); color: #000; font-size: 12px; font-weight: 800; padding: 6px 16px; border-radius: 12px;
+    text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(251, 191, 36, 0.3);
+  }
+  .price-title { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+  .price-amount { font-size: 48px; font-weight: 800; margin-bottom: 25px; }
+  .price-amount span { font-size: 16px; color: var(--muted); font-weight: 400; }
+  .price-features { list-style: none; text-align: left; margin-bottom: 30px; flex-grow: 1; }
+  .price-features li { font-size: 15px; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; color: var(--text); }
+  .price-features li::before { content: '✅'; font-size: 16px; }
+  .btn-buy { display: block; width: 100%; padding: 16px; border-radius: 12px; text-decoration: none; font-weight: 800; font-size: 16px; transition: 0.2s; }
+  .btn-buy.outline { background: transparent; border: 2px solid var(--line); color: var(--text); }
+  .btn-buy.outline:hover { border-color: var(--brand); color: var(--brand); }
+  .btn-buy.solid { background: var(--grad-brand); color: #fff; border: none; box-shadow: 0 8px 20px var(--brand-glow); }
+  .btn-buy.solid:hover { transform: translateY(-2px); box-shadow: 0 12px 25px var(--brand-glow); }
+
+  /* === HOW IT WORKS === */
+  .steps { padding: 60px 0 80px; text-align: center; }
+  .step-grid { display: grid; grid-template-columns: 1fr; gap: 30px; margin-top: 40px; }
+  .step-card { position: relative; padding: 20px; background: var(--bg-card); border-radius: 20px; border: 1px solid var(--line); }
+  .step-num {
+    width: 50px; height: 50px; background: var(--bg-card2); border: 2px solid var(--brand); color: var(--brand-light);
+    border-radius: 50%; display: grid; place-items: center; font-weight: 800; margin: 0 auto 20px; font-size: 22px;
+    box-shadow: 0 0 15px var(--brand-glow);
+  }
+  .step-card h4 { font-size: 18px; margin-bottom: 10px; }
+  .step-card p { font-size: 14px; color: var(--muted); }
+
+  /* === FOOTER & CONTACT === */
+  .footer-cta { background: linear-gradient(180deg, var(--bg) 0%, #020604 100%); padding: 80px 20px 40px; text-align: center; border-top: 1px solid var(--line); }
+  .footer-cta h2 { font-size: 32px; margin-bottom: 15px; }
+  .footer-cta p { color: var(--muted); margin-bottom: 35px; font-size: 16px; }
+  .contact-btns { display: flex; flex-direction: column; gap: 15px; max-width: 350px; margin: 0 auto 50px; }
+  .btn-wa { background: var(--wa); color: #fff; display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 16px; box-shadow: 0 5px 15px rgba(37, 211, 102, 0.2); }
+  .btn-call { background: var(--bg-card2); color: var(--text); border: 1px solid var(--line); display: flex; align-items: center; justify-content: center; gap: 10px; padding: 16px; border-radius: 12px; text-decoration: none; font-weight: 700; font-size: 16px; }
+  
+  .brand-info { border-top: 1px solid var(--line); padding-top: 40px; font-size: 15px; color: var(--muted); }
+  .brand-info strong { color: var(--text); font-size: 18px; display: block; margin-bottom: 5px; letter-spacing: 1px; }
+  .brand-links { margin-top: 15px; display: flex; justify-content: center; gap: 20px; }
+  .brand-links a { color: var(--brand-light); text-decoration: none; font-size: 14px; font-weight: 600; }
+  .brand-links a:hover { text-decoration: underline; }
+
+  /* === STICKY BOTTOM BAR === */
+  .sticky-bottom {
+    position: fixed; bottom: 0; left: 0; right: 0; background: rgba(5, 16, 10, 0.95);
+    backdrop-filter: blur(10px); border-top: 1px solid var(--line); padding: 12px 20px;
+    display: flex; justify-content: space-between; align-items: center; z-index: 100;
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  }
+  .sticky-bottom span { font-size: 14px; font-weight: 600; }
+  .sticky-bottom a {
+    background: var(--grad-gold); color: #000; padding: 12px 24px; border-radius: 10px;
+    text-decoration: none; font-weight: 800; font-size: 15px; box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+  }
+
+  /* === MEDIA QUERIES (TABLET & DESKTOP) === */
+  @media (min-width: 768px) {
+    .compare-grid { grid-template-columns: 1fr 1fr; }
+    .features-grid { grid-template-columns: 1fr 1fr; }
+    .price-grid { grid-template-columns: 1fr 1fr; }
+    .step-grid { grid-template-columns: repeat(3, 1fr); }
+    .contact-btns { flex-direction: row; max-width: 100%; justify-content: center; }
+    .btn-wa, .btn-call { flex: 1; max-width: 250px; }
+  }
+
+  @media (min-width: 992px) {
+    .header-btn { display: block; }
+    .hero-grid { grid-template-columns: 1.2fr 0.8fr; gap: 60px; text-align: left; }
+    .hero-content { text-align: left; }
+    .hero-content p { margin-left: 0; }
+    .cta-btn { width: auto; }
+    .features-grid { grid-template-columns: repeat(4, 1fr); }
+    .price-grid { gap: 40px; }
+    .price-card.popular { transform: scale(1.05); }
+    .footer-cta .container { display: flex; justify-content: space-between; text-align: left; align-items: center; }
+    .contact-btns { flex-direction: row; margin: 0; }
+    .brand-info { border-top: none; padding-top: 0; text-align: right; border-left: 1px solid var(--line); padding-left: 40px; }
+    .brand-links { justify-content: flex-end; }
+    
+    /* Adjust sticky bar for desktop */
+    .sticky-bottom { max-width: 1200px; margin: 0 auto; border-radius: 16px 16px 0 0; border: 1px solid var(--line); border-bottom: none; }
+  }
+</style>
+</head>
+<body>
+
+  <header>
+    <div class="container header-inner">
+      <div>
+        <div class="logo-text">AMIT <span>CREATION</span></div>
+        <div class="logo-sub">SMM | Grow Business | Website Design</div>
+      </div>
+      <a href="#pricing" class="header-btn">View Pricing</a>
+    </div>
+  </header>
+
+  <section class="hero container">
+    <div class="hero-grid">
+      <!-- Left Side Content -->
+      <div class="hero-content">
+        <div class="badge-top">🚀 India's Smartest Business Tool</div>
+        <h1>Ek QR Code, <br><span>Saare Connections!</span></h1>
+        <p>Apne customers ko har jagah bhejna band karein. Ek hi QR scan karke wo aapke <b>WhatsApp, Instagram, Google Reviews</b> aur Website se seedha jud sakein.</p>
+        <a href="#pricing" class="cta-btn">Abhi Sirf ₹69/mo Mein Shuru Karein</a>
+      </div>
+      
+      <!-- Right Side Visual (Mockup) -->
+      <div class="hero-visual">
+        <div class="qr-mockup">
+          <div class="qr-box">
+            <!-- QR Code SVG Placeholder -->
+            <svg viewBox="0 0 100 100" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+              <rect width="100%" height="100%" fill="#fff"/>
+              <path d="M10 10h25v25H10zM15 15h15v15H15zM65 10h25v25H65zM70 15h15v15H70zM10 65h25v25H10zM15 70h15v15H15zM45 45h10v10H45z" fill="#000"/>
+              <path d="M45 10h10v25H45zM10 45h25v10H10zM65 45h25v10H65zM45 65h10v25H45zM65 65h25v25H65zM70 70h15v15H70z" fill="#000"/>
+            </svg>
+          </div>
+          <div class="qr-lines"></div>
+          <div class="qr-lines short"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="compare-section container">
+    <h2 class="section-title" style="text-align:center;">Purane Tarike vs One QR System</h2>
+    <div class="compare-grid">
+      <div class="comp-card bad">
+        <h3>❌ Aam Dukaan (Purana Tarika)</h3>
+        <ul>
+          <li>• 4-5 alag-alag QR codes lagane padte hain</li>
+          <li>• Customer ko confuse hota hai kya scan kare</li>
+          <li>• Dukaan ki look kharab lagti hai</li>
+          <li>• Kisi ek platform par customer ka attention nahi jata</li>
+        </ul>
+      </div>
+      <div class="comp-card good">
+        <h3>✅ One QR System (Naya Tarika)</h3>
+        <ul>
+          <li>• Sirf 1 Premium QR Code</li>
+          <li>• Customer khud choose kare (Insta/WhatsApp/Review)</li>
+          <li>• Dukaan ekdum modern aur professional dikhti hai</li>
+          <li>• Direct WhatsApp pe order aur Reviews badhte hain</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="features">
+    <div class="container">
+      <h2 class="section-title">Isme Aisa Kya Khaas Hai?</h2>
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="icon">📱</span>
+          <h3>Smart Mobile Page</h3>
+          <p>Aapka apna website jaisa page jo mobile pe super fast load hota hai.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon">💬</span>
+          <h3>WhatsApp Integration</h3>
+          <p>Customer jab bhi button dabaye, seedha aapke WhatsApp pe order/enquiry aaye.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon">⭐</span>
+          <h3>Google Reviews</h3>
+          <p>Khush customer se 5-star review lene ka sabse aasan tarika.</p>
+        </div>
+        <div class="feature-card">
+          <span class="icon">🎨</span>
+          <h3>Custom Branding</h3>
+          <p>Aapki dukaan ka naam, logo aur theme color. Ekdum aapke naam pe.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing container" id="pricing">
+    <h2 class="section-title">Sasta, Sundar aur Smart Pricing</h2>
+    <p style="color:var(--muted); font-size:16px; margin-bottom:20px;">Koi hidden charges nahi. Jab chahe band karein.</p>
+    
+    <div class="price-grid">
+      <!-- Monthly Plan -->
+      <div class="price-card">
+        <div class="price-title">Monthly Plan</div>
+        <div class="price-amount">₹69<span>/mo</span></div>
+        <ul class="price-features">
+          <li>Premium One QR Page</li>
+          <li>All Social Links (WA, Insta)</li>
+          <li>Google Review Section</li>
+          <li>Basic Support</li>
+        </ul>
+        <a href="https://wa.me/917970258635?text=Namaste%20Amit%20Creation,%20mujhe%20Monthly%20(%E2%82%B969)%20QR%20System%20chahiye." class="btn-buy outline" target="_blank">Choose Monthly</a>
+      </div>
+
+      <!-- Yearly Plan -->
+      <div class="price-card popular">
+        <div class="pop-badge">Save ₹129</div>
+        <div class="price-title">Yearly Plan</div>
+        <div class="price-amount">₹699<span>/yr</span></div>
+        <ul class="price-features">
+          <li>Sab kuch Monthly plan se</li>
+          <li>Free QR Stand (Print)</li>
+          <li>Product Catalog Add-on</li>
+          <li>Priority Support</li>
+        </ul>
+        <a href="https://wa.me/917970258635?text=Namaste%20Amit%20Creation,%20mujhe%20Yearly%20(%E2%82%B9699)%20QR%20System%20chahiye." class="btn-buy solid" target="_blank">Get Yearly Deal 🚀</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="steps container">
+    <h2 class="section-title">Kaam Kaise Karta Hai?</h2>
+    <div class="step-grid">
+      <div class="step-card">
+        <div class="step-num">1</div>
+        <h4>WhatsApp pe Contact Karein</h4>
+        <p>Bas humein message karein aur apni dukaan ki details dein.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">2</div>
+        <h4>Hum Page Banayenge</h4>
+        <p>24 ghante ke andar aapka premium page ready ho jayega.</p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">3</div>
+        <h4>QR Lagayein & Grow Karein</h4>
+        <p>Hum aapko QR bhejenge. Print karein aur counter pe lagayein!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER & CONTACT -->
+  <footer class="footer-cta">
+    <div class="container">
+      <div>
+        <h2>Apne Business ko Upgrade Karein</h2>
+        <p>Aaj hi apna One QR System banwayein.</p>
+        
+        <div class="contact-btns">
+          <a href="https://wa.me/917970258635?text=Hi%20Amit%20Creation,%20mujhe%20apne%20business%20ke%20liye%20One%20QR%20System%20banwana%20hai." class="btn-wa" target="_blank">
+            💬 WhatsApp Us
+          </a>
+          <a href="tel:+919753523477" class="btn-call">
+            📞 Call Now
+          </a>
+        </div>
+      </div>
+
+      <div class="brand-info">
+        <strong>AMIT CREATION</strong>
+        SMM | Grow business | website design<br>
+        📍 Dikhoge 🌝 Tabhi Toh Bikega 🌱
+        <div class="brand-links">
+          <a href="https://instagram.com/amit_creation17" target="_blank">📸 @amit_creation17</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- STICKY BOTTOM BAR -->
+  <div class="sticky-bottom">
+    <div>
+      <span style="color:var(--brand-light)">₹69/mo</span><br>
+      <span style="font-size:12px; color:var(--muted)">One QR System</span>
+    </div>
+    <a href="https://wa.me/917970258635?text=Hi,%20mujhe%20QR%20System%20kharidna%20hai" target="_blank">Buy Now</a>
+  </div>
+
+</body>
+</html>
